@@ -1,32 +1,23 @@
 <template>
 <div>
-<app-header></app-header>
-<app-sidebar></app-sidebar>
+<el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu-item index="1">处理中心</el-menu-item>
+  <el-submenu index="2">
+    <template slot="title">我的工作台</template>
+    <el-menu-item index="2-1">选项1</el-menu-item>
+    <el-menu-item index="2-2">选项2</el-menu-item>
+    <el-menu-item index="2-3">选项3</el-menu-item>
+  </el-submenu>
+  <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+</el-menu>
 </div>
 </template>
 <script>
-import Header from './Header';
-import Sidebar from './Sidebar';
 export default {
   name: 'Home',
   components: { 
-    'app-header': Header,
-    'app-sidebar':Sidebar
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import '/static/css/icon.css';
-@import '/static/css/fonts.css';
-.example-appbar {
-    position: fixed;
-    left: 256px;
-    right: 0;
-    top: 0;
-    width: auto;
-    -webkit-transition: all .45s cubic-bezier(.23,1,.32,1);
-    transition: all .45s cubic-bezier(.23,1,.32,1);
-}
 </style>

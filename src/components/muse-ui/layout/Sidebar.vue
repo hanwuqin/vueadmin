@@ -4,10 +4,8 @@
     <mu-appbar title="后台管理系统" class="example-appbar">
     </mu-appbar>
     <mu-menu>
-      <mu-menu-item title="用户管理"/>
-      <mu-menu>
-        <mu-menu-item title="角色管理"/>
-      </mu-menu>
+      <mu-menu-item title="用户管理" to="login"/>
+      <mu-menu-item title="角色管理"/>
     </mu-menu>
   </mu-paper>
   
@@ -19,7 +17,7 @@ export default {
   name: 'app-sidebar',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      ishidden:false
     }
   }
 }
