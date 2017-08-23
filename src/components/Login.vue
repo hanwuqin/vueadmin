@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import sessionstore from '../store/store';
   export default {
     data() {
       var validateUsername = (rule, value, callback) => {
@@ -54,12 +55,15 @@
     },
     methods: {
       submitForm(formName) {
+        var _this = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$axios.post("api/login.php",{'user_name': this.loginForm.user_name,'user_pass':this.loginForm.user_pass})
             .then(function(res){
               if(res.data.code == '10000'){
-                window.location.href ="/";
+                  sessionstore.setItem("admin_user_info",res.data);
+                 _this.$router.push("/");
+               // window.location.href ="/";
               }
             })
             .catch(function(err){
